@@ -324,10 +324,10 @@ $(function(){
 
 					var fileSize = bytesToSize(f.size),
 						name = escapeHTML(f.name),
-						fileType = name.split('.').toLowerCase(),
+						fileType = name.split('.'),
 						icon = '<span class="icon file"></span>';
 
-					fileType = fileType.length > 1 ? fileType[fileType.length-1] : '';
+					fileType = (fileType.length > 1 ? fileType[fileType.length-1] : '').toLowerCase();
 
 					console.log(f.path);
 					if(fileType == 'jpg' || fileType == 'jpeg' || fileType == 'png' || fileType == 'bmp') {
