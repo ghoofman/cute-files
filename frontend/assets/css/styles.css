@@ -344,6 +344,14 @@ body {
 	text-overflow: ellipsis;
 }
 
+.file.image {
+	width: 6em;
+  height: 80%;
+	display: inline-block;
+	background-size: cover;
+	margin: 0.9em 1.2em 0.8em 1.3em;
+}
+
 .icon.file:first-line {
 	font-size: 13px;
 	font-weight: 700;

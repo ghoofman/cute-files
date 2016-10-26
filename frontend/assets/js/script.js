@@ -22,7 +22,7 @@ $(function(){
 
 			goto(window.location.hash);
 
-			// We are triggering the event. This will execute 
+			// We are triggering the event. This will execute
 			// this function on page load, so that we show the correct folder:
 
 		}).trigger('hashchange');
@@ -324,12 +324,17 @@ $(function(){
 
 					var fileSize = bytesToSize(f.size),
 						name = escapeHTML(f.name),
-						fileType = name.split('.'),
+						fileType = name.split('.').toLowerCase(),
 						icon = '<span class="icon file"></span>';
 
 					fileType = fileType.length > 1 ? fileType[fileType.length-1] : '';
 
-					icon = '<span class="icon file f-' + fileType + '">' + fileType + '</span>';
+					console.log(f.path);
+					if(fileType == 'jpg' || fileType == 'jpeg' || fileType == 'png' || fileType == 'bmp') {
+						icon = '<span class="file image" style="background-image: url(\''+ (f.path) + '\')"></span>';
+					} else {
+						icon = '<span class="icon file f-' + fileType + '">' + fileType + '</span>';
+					}
 
 					var file = $('<li class="files"><a href="'+ f.path+'" title="'+ f.path +'" class="files">'+icon+'<span class="name">'+ name +'</span> <span class="details">'+fileSize+'</span></a></li>');
 					file.appendTo(fileList);
